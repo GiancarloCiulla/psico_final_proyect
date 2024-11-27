@@ -11,10 +11,14 @@ const isAdmin = (req, res, next) => {
   next();
 };
 
+// Obtener todos los blogs (ruta pública, no requiere rol de admin)
+router.get("/", blogsController.getAllBlogs);
+
 // Crear un blog (solo admin)
 router.post("/", isAdmin, blogsController.createBlog);
 
 // Eliminar un blog (solo admin)
 router.delete("/:id", isAdmin, blogsController.deleteBlog);
+
 
 module.exports = router;

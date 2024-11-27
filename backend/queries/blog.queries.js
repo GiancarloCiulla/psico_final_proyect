@@ -1,27 +1,41 @@
 const queries = {
-    getAllBlogs: `
-        SELECT 
-            Blogs.ID_blog,
-            Blogs.titulo,
-            Blogs.contenido,
-            Blogs.fecha_publicacion,
-            Blogs.link_publicacion,
-            Categoria.nombre AS categoria,
-            Usuarios.nombre AS autor
-        FROM Blogs
-        JOIN Categoria ON Blogs.ID_categoria = Categoria.ID_categoria
-        JOIN Usuarios ON Blogs.ID_usuario = Usuarios.ID_usuario;
-    `,
+    // Crear un nuevo blog
     createBlog: `
-        INSERT INTO Blogs (titulo, contenido, fecha_publicacion, link_publicacion, ID_usuario, ID_categoria)
-        VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;
+      INSERT INTO blog (
+        titulo, contenido, fecha_publicacion, link_publicacion, categoria_id, usuario_id, link_foto
+      ) VALUES ($1, $2, $3, $4, $5, $6, $7)
+      RETURNING *;
     `,
-    updateBlog: `
-        UPDATE Blogs
-        SET titulo = $1, contenido = $2, fecha_publicacion = $3, link_publicacion = $4, ID_usuario = $5, ID_categoria = $6
-        WHERE ID_blog = $7 RETURNING *;
-    `,
-    deleteBlog: `DELETE FROM Blogs WHERE ID_blog = $1 RETURNING *;`,
-};
+  
+    // Eliminar un blog por ID
+    deleteBlog: `
+    DELETE FROM blog
+    WHERE id = $1
+    RETURNING *;
+  `,
 
-module.exports = queries;
+    // Obtener todos los blogs
+    getAllBlogs: `
+      SELECT 
+        blog.id,
+        blog.titulo,
+        blog.contenido,
+        blog.fecha_publicacion,
+        blog.link_publicacion,
+        blog.link_foto,
+        categoria.nombre AS categoria,
+        usuario.nombre AS autor
+      FROM blog
+      INNER JOIN categoria ON blog.categoria_id = categoria.id
+      INNER JOIN usuario ON blog.usuario_id = usuario.id_usuario
+      ORDER BY blog.fecha_publicacion DESC;
+    `,
+    
+  };
+  
+  module.exports = queries;
+  
+
+  
+ 
+  

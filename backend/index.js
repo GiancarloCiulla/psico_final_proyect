@@ -25,7 +25,7 @@ const citasRoutes = require("./routes/citasRoutes");
 
 // Habilitar rutas con prefijos específicos
 app.use("/user", userRoutes); 
-app.use("/blogs", blogsRoutes); 
+app.use("/blog", blogsRoutes); 
 app.use("/citas", citasRoutes); 
 
 
