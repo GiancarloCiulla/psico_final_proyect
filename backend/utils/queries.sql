@@ -12,7 +12,7 @@ CREATE TABLE Usuario (
     id SERIAL PRIMARY KEY,
     nombre VARCHAR(255) NOT NULL,
     email VARCHAR(255) UNIQUE NOT NULL,
-    contrasena_hash TEXT NOT NULL,
+    contraseña_hash TEXT NOT NULL,
     rol VARCHAR(50) NOT NULL CHECK (rol IN ('admin', 'user'))
 );
 
