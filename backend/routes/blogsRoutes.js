@@ -2,10 +2,23 @@ const express = require("express");
 const router = express.Router();
 const blogsController = require("../controllers/blogsController");
 
-// Rutas de blogs
-router.get("/", blogsController.getAllBlogs); // Obtener todos los blogs
-router.post("/", blogsController.createBlog); // Crear un nuevo blog
-router.put("/:id", blogsController.updateBlog); // Actualizar un blog por ID
-router.delete("/:id", blogsController.deleteBlog); // Eliminar un blog por ID
+// Middleware para verificar el rol del usuario
+const isAdmin = (req, res, next) => {
+  const { rol } = req.body; // Supone que el rol se envía en el cuerpo de la solicitud o viene del token
+  if (rol !== "admin") {
+    return res.status(403).json({ error: "Acceso denegado. Solo los usuarios con rol de admin pueden realizar esta acción." });
+  }
+  next();
+};
+
+// Obtener todos los blogs (ruta pública, no requiere rol de admin)
+router.get("/", blogsController.getAllBlogs);
+
+// Crear un blog (solo admin)
+router.post("/", isAdmin, blogsController.createBlog);
+
+// Eliminar un blog (solo admin)
+router.delete("/:id", isAdmin, blogsController.deleteBlog);
+
 
 module.exports = router;
