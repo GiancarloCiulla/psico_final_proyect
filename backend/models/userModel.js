@@ -51,7 +51,7 @@ const deleteUserByEmail = async (email) => {
     `;
     try {
       const result = await pool.query(query, [email]);
-      return result.rows[0]; // Devuelve el usuario eliminado
+      return result.rows[0]; 
     } catch (err) {
       console.error("Error eliminando usuario:", err.stack);
       throw err;
