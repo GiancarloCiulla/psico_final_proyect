@@ -9,7 +9,7 @@ const Categorias = () => {
   useEffect(() => {
     const fetchCategorias = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/categories"); 
+        const response = await axios.get("http://localhost:3000/api/categoria"); 
         console.log("Datos obtenidos:", response.data);
 
         // Asumiendo que los datos vienen directamente como un array de categorías
