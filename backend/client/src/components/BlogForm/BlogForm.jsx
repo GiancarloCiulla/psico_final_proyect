@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+//import "./BlogForm.scss"; // Archivo de estilos
 
 const BlogForm = () => {
   const [formData, setFormData] = useState({
@@ -8,19 +9,19 @@ const BlogForm = () => {
     fecha_publicacion: "",
     link_publicacion: "",
     link_foto: "",
-    categoria_id: "", // Se seleccionará de un menú desplegable
-    usuario_id: 1, // Suponemos un usuario autenticado con ID 1
+    categoria_id: "", 
+    usuario_id: 1, 
   });
 
-  const [categorias, setCategorias] = useState([]); // Lista de categorías
-  const [message, setMessage] = useState(""); // Mensaje de éxito o error
+  const [categorias, setCategorias] = useState([]); 
+  const [message, setMessage] = useState(""); 
 
-  // Obtener las categorías al montar el componente
+  // Obtener las categorías desde el backend
   useEffect(() => {
     const fetchCategorias = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/categorias"); // Cambia la URL según tu backend
-        setCategorias(response.data); // Supone que el backend devuelve un array de categorías
+        const response = await axios.get("http://localhost:3000/blog"); 
+        setCategorias(response.data); 
       } catch (error) {
         console.error("Error al obtener categorías:", error);
       }
@@ -40,7 +41,7 @@ const BlogForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3000/blog", formData); // Cambia la URL según tu backend
+      const response = await axios.post("http://localhost:3000/blog", formData); // revisar!
       setMessage("Blog creado exitosamente.");
       setFormData({
         titulo: "",
@@ -79,8 +80,7 @@ const BlogForm = () => {
             name="contenido"
             value={formData.contenido}
             onChange={handleChange}
-            rows="10" // Para que el campo sea grande
-            required
+            rows="10" 
           />
         </div>
         <div>
@@ -126,7 +126,7 @@ const BlogForm = () => {
             <option value="">Seleccionar Categoría</option>
             {categorias.map((categoria) => (
               <option key={categoria.id} value={categoria.id}>
-                {categoria.nombre} {/* Cambia "nombre" según el campo en tu tabla de categorías */}
+                {categoria.nombre}
               </option>
             ))}
           </select>

@@ -1,124 +1,57 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-const LoginForm = ({ onClose }) => {
-  const [formData, setFormData] = useState({ username: "", password: "" });
-  const [error, setError] = useState("");
+const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate(); 
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3000/admin/login", formData);
-      if (response.data.success) {
-        alert("Bienvenido Admin");
-        onClose(); // Cierra el modal
-      } else {
-        setError("Credenciales inválidas");
+      const response = await axios.post('http://localhost:3000/api/login', {
+        email,
+        password,
+      });
+
+      // Validar si el usuario es administrador
+      if (response.data.user.rol === 'admin') {
+        navigate('/admin-dashboard');
+        setError('No tienes acceso como administrador');
       }
     } catch (err) {
-      console.error("Error al iniciar sesión:", err);
-      setError("Error al conectar con el servidor");
+      console.error('Error en login:', err);
+      setError(err.response?.data?.error || 'Error al iniciar sesión');
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleLogin}>
+      <h2>Acceso Admin</h2>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
       <div>
-        <label htmlFor="username">Usuario:</label>
+        <label>Usuario:</label>
         <input
-          type="text"
-          id="username"
-          name="username"
-          value={formData.username}
-          onChange={handleChange}
+          type="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           required
         />
       </div>
       <div>
-        <label htmlFor="password">Contraseña:</label>
+        <label>Contraseña:</label>
         <input
           type="password"
-          id="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           required
         />
       </div>
-      {error && <p>{error}</p>}
       <button type="submit">Acceder</button>
     </form>
   );
 };
 
-export default LoginForm;
-
-
-// import React, { useState } from "react";
-// import axios from "axios";
-
-// const LoginForm = ({ onClose }) => {
-//   const [formData, setFormData] = useState({ username: "", password: "" });
-//   const [error, setError] = useState("");
-
-//   const handleChange = (e) => {
-//     const { name, value } = e.target;
-//     setFormData({ ...formData, [name]: value });
-//   };
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     try {
-//       const response = await axios.post("http://localhost:3000/admin/login", formData); // Cambia la URL si es necesario
-//       console.log("Respuesta del servidor:", response.data);
-//       if (response.data.success) {
-//         alert("Bienvenido Admin");
-//         onClose(); // Cierra el modal al iniciar sesión correctamente
-//       } else {
-//         setError("Credenciales inválidas");
-//       }
-//     } catch (err) {
-//       console.error("Error al iniciar sesión:", err);
-//       setError("Error al conectar con el servidor");
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <h2>Iniciar Sesión</h2>
-//       <form onSubmit={handleSubmit}>
-//         <div>
-//           <label htmlFor="username">Usuario:</label>
-//           <input
-//             type="text"
-//             id="username"
-//             name="username"
-//             value={formData.username}
-//             onChange={handleChange}
-//             required
-//           />
-//         </div>
-//         <div>
-//           <label htmlFor="password">Contraseña:</label>
-//           <input
-//             type="password"
-//             id="password"
-//             name="password"
-//             value={formData.password}
-//             onChange={handleChange}
-//             required
-//           />
-//         </div>
-//         {error && <p className="error-message">{error}</p>}
-//         <button type="submit">Acceder</button>
-//       </form>
-//     </div>
-//   );
-// };
-
-// export default LoginForm;
+export default Login;

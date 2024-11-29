@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import LoginForm from "../../../src/components/Header/Login/LoginForm"; // Ajusta la ruta según dónde está ubicado LoginForm
+import LoginForm from "../../../src/components/Header/Login/LoginForm"; 
 // import "./Header.scss";
 
 const Header = () => {
   const [showLoginModal, setShowLoginModal] = useState(false);
 
   const handleOpenModal = () => {
-    setShowLoginModal(true); // Mostrar el modal
+    setShowLoginModal(true); 
   };
 
   const handleCloseModal = () => {
-    setShowLoginModal(false); // Cerrar el modal
+    setShowLoginModal(false);
   };
 
   return (
@@ -25,7 +25,7 @@ const Header = () => {
             <button className="close-button" onClick={handleCloseModal}>
               ✖
             </button>
-            <LoginForm onClose={handleCloseModal} /> {/* Renderiza el formulario */}
+            <LoginForm onClose={handleCloseModal} /> 
           </div>
         </div>
       )}
