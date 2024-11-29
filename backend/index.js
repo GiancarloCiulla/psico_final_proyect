@@ -2,31 +2,42 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const dotenv = require("dotenv");
-
-// Configuración de entorno
-dotenv.config();
+const cors = require("cors"); // Importa el middleware de CORS
 
 // Inicializar el servidor
 const app = express();
 const port = process.env.PORT || 3000;
 
+
+// Configura CORS
+app.use(cors()); 
+
+
+
+// Configuración de entorno
+dotenv.config();
+
+
 // -------------------------------------------------------------------------
 // Middlewares 
-app.use(express.urlencoded({ extended: true })); // Parsear datos de formularios (x-www-form-urlencoded)
-app.use(express.json()); // Parsear datos en formato JSON
-app.use(cookieParser()); // Parsear cookies
-app.use(express.static("public")); // Servir archivos estáticos (CSS, JS, imágenes, etc.)
+app.use(express.urlencoded({ extended: true })); 
+app.use(express.json()); 
+app.use(cookieParser()); 
+app.use(express.static("public")); 
 
 // -------------------------------------------------------------------------
 // Importar rutas
 const userRoutes = require("./routes/usersRoutes");
 const blogsRoutes = require("./routes/blogsRoutes");
 const citasRoutes = require("./routes/citasRoutes");
+const adminRoutes = require("./routes/adminRoutes");
 
 // Habilitar rutas con prefijos específicos
 app.use("/user", userRoutes); 
 app.use("/blog", blogsRoutes); 
 app.use("/citas", citasRoutes); 
+app.use("/admin", adminRoutes);
+
 
 
 app.listen(port, () => {

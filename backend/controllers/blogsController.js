@@ -10,7 +10,6 @@ const isAdmin = (rol) => {
 };
 
 const createBlog = async (req, res) => {
-    
   const { titulo, contenido, usuario_id, categoria_id, fecha_publicacion, link_publicacion, link_foto, rol } = req.body;
 
   try {
@@ -57,34 +56,32 @@ const createBlog = async (req, res) => {
     res.status(500).json({ error: "Error interno del servidor.", detalles: err.message });
   }
 };
-const getAllBlogs = async (req, res) => {
-    try {
-      const result = await pool.query(queries.getAllBlogs);
-  
-      if (result.rows.length === 0) {
-        return res.status(404).json({ error: "No se encontraron blogs." });
-      }
-  
-      res.status(200).json({ blogs: result.rows });
-    } catch (err) {
-      console.error("Error al obtener los blogs:", err.message);
-      res.status(500).json({ error: "Error interno del servidor.", detalles: err.message });
-    }
-  };
 
-// Eliminar un blog
+const getAllBlogs = async (req, res) => {
+  try {
+    const result = await pool.query(queries.getAllBlogs);
+
+    if (result.rows.length === 0) {
+      return res.status(404).json({ error: "No se encontraron blogs." });
+    }
+
+    res.status(200).json({ blogs: result.rows });
+  } catch (err) {
+    console.error("Error al obtener los blogs:", err.message);
+    res.status(500).json({ error: "Error interno del servidor.", detalles: err.message });
+  }
+};
+
 const deleteBlog = async (req, res) => {
   const { id } = req.params;
   const { rol } = req.body;
 
   try {
-    // Verificar que el usuario tenga rol de admin
     const adminError = isAdmin(rol);
     if (adminError) {
       return res.status(adminError.status).json({ error: adminError.error });
     }
 
-    // Query para eliminar el blog
     const result = await pool.query(queries.deleteBlog, [id]);
 
     if (result.rows.length === 0) {
@@ -98,7 +95,141 @@ const deleteBlog = async (req, res) => {
   }
 };
 
-module.exports = { getAllBlogs, createBlog, deleteBlog };
+const deleteBlogByTitle = async (req, res) => {
+  const { titulo } = req.params;
+  const { rol } = req.body;
+
+  try {
+    const adminError = isAdmin(rol);
+    if (adminError) {
+      return res.status(adminError.status).json({ error: adminError.error });
+    }
+
+    const result = await pool.query(queries.deleteBlogByTitle, [titulo]);
+
+    if (result.rows.length === 0) {
+      return res.status(404).json({ error: "Blog no encontrado." });
+    }
+
+    res.status(200).json({ message: "Blog eliminado con éxito.", blog: result.rows[0] });
+  } catch (err) {
+    console.error("Error al eliminar el blog por título:", err.message);
+    res.status(500).json({ error: "Error interno del servidor.", detalles: err.message });
+  }
+};
+
+module.exports = { getAllBlogs, createBlog, deleteBlog, deleteBlogByTitle };
+
+
+
+
+
+
+
+
+
+
+// const pool = require("../config/db_pgsql");
+// const queries = require("../queries/blog.queries");
+
+// // Middleware para verificar el rol del usuario
+// const isAdmin = (rol) => {
+//   if (rol !== "admin") {
+//     return { status: 403, error: "Acceso denegado. Solo los usuarios con rol de admin pueden realizar esta acción." };
+//   }
+//   return null;
+// };
+
+// const createBlog = async (req, res) => {
+    
+//   const { titulo, contenido, usuario_id, categoria_id, fecha_publicacion, link_publicacion, link_foto, rol } = req.body;
+
+//   try {
+//     // Verificar que el usuario tenga rol de admin
+//     const adminError = isAdmin(rol);
+//     if (adminError) {
+//       return res.status(adminError.status).json({ error: adminError.error });
+//     }
+
+//     // Validar datos requeridos
+//     if (!titulo || !contenido || !usuario_id || !categoria_id) {
+//       return res.status(400).json({ error: "Todos los campos (titulo, contenido, usuario_id, categoria_id) son obligatorios." });
+//     }
+
+//     // Verificar que categoria_id exista
+//     const categoriaQuery = "SELECT * FROM categoria WHERE id = $1";
+//     const categoriaResult = await pool.query(categoriaQuery, [categoria_id]);
+//     if (categoriaResult.rows.length === 0) {
+//       return res.status(400).json({ error: `La categoría con id ${categoria_id} no existe.` });
+//     }
+
+//     // Verificar que usuario_id exista
+//     const usuarioQuery = "SELECT * FROM usuario WHERE id_usuario = $1";
+//     const usuarioResult = await pool.query(usuarioQuery, [usuario_id]);
+//     if (usuarioResult.rows.length === 0) {
+//       return res.status(400).json({ error: `El usuario con id ${usuario_id} no existe.` });
+//     }
+
+//     // Insertar el blog en la base de datos
+//     const values = [
+//       titulo,
+//       contenido,
+//       fecha_publicacion ? new Date(fecha_publicacion) : new Date(),
+//       link_publicacion,
+//       categoria_id,
+//       usuario_id,
+//       link_foto,
+//     ];
+//     const result = await pool.query(queries.createBlog, values);
+
+//     res.status(201).json({ blog: result.rows[0] });
+//   } catch (err) {
+//     console.error("Error al crear el blog:", err.message);
+//     res.status(500).json({ error: "Error interno del servidor.", detalles: err.message });
+//   }
+// };
+// const getAllBlogs = async (req, res) => {
+//     try {
+//       const result = await pool.query(queries.getAllBlogs);
+  
+//       if (result.rows.length === 0) {
+//         return res.status(404).json({ error: "No se encontraron blogs." });
+//       }
+  
+//       res.status(200).json({ blogs: result.rows });
+//     } catch (err) {
+//       console.error("Error al obtener los blogs:", err.message);
+//       res.status(500).json({ error: "Error interno del servidor.", detalles: err.message });
+//     }
+//   };
+
+// // Eliminar un blog
+// const deleteBlog = async (req, res) => {
+//   const { id } = req.params;
+//   const { rol } = req.body;
+
+//   try {
+//     // Verificar que el usuario tenga rol de admin
+//     const adminError = isAdmin(rol);
+//     if (adminError) {
+//       return res.status(adminError.status).json({ error: adminError.error });
+//     }
+
+//     // Query para eliminar el blog
+//     const result = await pool.query(queries.deleteBlog, [id]);
+
+//     if (result.rows.length === 0) {
+//       return res.status(404).json({ error: "Blog no encontrado." });
+//     }
+
+//     res.status(200).json({ message: "Blog eliminado con éxito.", blog: result.rows[0] });
+//   } catch (err) {
+//     console.error("Error al eliminar el blog:", err.message);
+//     res.status(500).json({ error: "Error interno del servidor.", detalles: err.message });
+//   }
+// };
+
+// module.exports = { getAllBlogs, createBlog, deleteBlog };
 
 
 

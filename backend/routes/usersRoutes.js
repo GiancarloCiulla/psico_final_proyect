@@ -1,20 +1,13 @@
 const express = require("express");
-const router = express.Router();
+const router = express.Router(); // Asegúrate de inicializar router aquí
 const usersController = require("../controllers/usersController");
 
 // Rutas de usuarios
 router.get("/", usersController.getUsers); // Obtener todos los usuarios o un usuario por email
 router.post("/", usersController.createUser); // Crear un nuevo usuario
-router.put("/:id", usersController.updateUser); // Actualizar un usuario por ID
+router.delete("/", usersController.deleteUserByEmail); // Eliminar usuario por email
 
-// Rutas futuras
-router.get("/:id", async (req, res) => {
-  res.status(501).json({ error: "Función 'getUserById' no implementada." }); // Ruta no implementada
-});
-
-router.delete("/", usersController.deleteUserByEmail);
-module.exports = router;
-
+module.exports = router; // Exportar el router correctamente
 
 
 

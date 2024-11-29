@@ -9,11 +9,18 @@ const queries = {
   
     // Eliminar un blog por ID
     deleteBlog: `
-    DELETE FROM blog
-    WHERE id = $1
-    RETURNING *;
-  `,
-
+      DELETE FROM blog
+      WHERE id = $1
+      RETURNING *;
+    `,
+  
+    // Eliminar un blog por título
+    deleteBlogByTitle: `
+      DELETE FROM blog
+      WHERE titulo = $1
+      RETURNING *;
+    `,
+  
     // Obtener todos los blogs
     getAllBlogs: `
       SELECT 
@@ -30,12 +37,10 @@ const queries = {
       INNER JOIN usuario ON blog.usuario_id = usuario.id_usuario
       ORDER BY blog.fecha_publicacion DESC;
     `,
-    
   };
   
   module.exports = queries;
   
 
-  
  
   
