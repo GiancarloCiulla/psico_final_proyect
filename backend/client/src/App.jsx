@@ -17,8 +17,8 @@ const App = () => {
           path="/"
           element={
             <>
-              <Home />
               <Categorias />
+              <Home />
             </>
           }
         />

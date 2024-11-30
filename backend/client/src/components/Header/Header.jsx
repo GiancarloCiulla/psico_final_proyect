@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import LoginForm from "../../../src/components/Header/Login/LoginForm"; 
-// import "./Header.scss";
+ import "../../styles/components/_header.scss";
 
 const Header = () => {
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -15,7 +15,7 @@ const Header = () => {
 
   return (
     <header className="header">
-      <h1>Mi Proyecto</h1>
+      <h1>Espacio para el Alma</h1>
       <button className="login-button" onClick={handleOpenModal}>
         Acceso Admin
       </button>
