@@ -16,8 +16,9 @@ const Header = () => {
   return (
     <header className="header">
       <h1>Espacio para el Alma</h1>
+      <h3>By:Anabel Soliveri</h3>
       <button className="login-button" onClick={handleOpenModal}>
-        Acceso Admin
+        {/* Acceso Admin */}
       </button>
       {showLoginModal && (
         <div className="modal">

@@ -2,8 +2,8 @@
 @use '../base/mixins' as mixins;  // Importa los mixins con un prefijo
 
 .header {
-  background-color: vars.$primary-color; // Uso de variables con prefijo
-  color: vars.$text-color;
+  background-color: 6C9A8B; // Uso de variables con prefijo
+  color:#FBF7F4;
   padding: vars.$padding-medium;
 
   @include mixins.respond-to(desktop) { // Uso del mixin de media queries

@@ -32,7 +32,7 @@ const Blog = () => {
 
   return (
     <div className="blog-container">
-      <h1 className="blog-title">Blogs</h1>
+      <h1 className="blog-title">Blog</h1>
       <div className="blog-grid">
         {blogs.map((blog) => (
           <Card key={blog.id} blog={blog} />
