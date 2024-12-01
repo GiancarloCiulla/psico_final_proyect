@@ -30,8 +30,7 @@ const Buscador = ({ blogs }) => {
 
   return (
     <div className="buscador-container">
-      <h1 className="buscador-title">Filtro por Categorías</h1>
-
+    
       {/* Filtro por categoría */}
       <select
         value={selectedCategory}

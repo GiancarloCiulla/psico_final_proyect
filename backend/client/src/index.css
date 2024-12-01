@@ -13,7 +13,13 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+p {
+  font-family: 'Roboto', sans-serif; /* Cambia a otra fuente si prefieres */
+  font-size: 1rem; /* Ajusta según tus necesidades */
+  line-height: 1.5; /* Espaciado entre líneas */
+  color: #836c6c; /* Asegura contraste legible */
+  margin: 16px 0; /* Espaciado arriba y abajo */
+}
 
 h2.card__title{
   color: #A1683A
@@ -31,6 +37,9 @@ div.card{
 div.categorias-container{
   background-color: #EED2CC;
 }
+div.card__content {
+margin-left: 15px;
+}
 
 .card__image {
   width: 100%; 
@@ -43,7 +52,8 @@ div.categorias-container{
   display: block; 
 }
 h3{
-  text-align: right;
+  text-align:center ;
+  color:#E8998D
 }
 a {
   font-weight: 500;
@@ -57,16 +67,16 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  place-items: column;
   min-width: 320px;
   min-height: 100vh;
 }
 
 h1 {
-  
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 3em;
   line-height: 1.1;
-  
+  color:#A1683A
 }
 
 button {
@@ -99,4 +109,26 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+.star-rating {
+  display: flex;
+  gap: 5px;
+  justify-content:flex-end;
+  align-items: center;
+  font-size: 1rem;
+  color: #ccc; /* Color de las estrellas vacías */
+  cursor: pointer;
+  
+}
+
+.star-rating .star.filled {
+  color: #FFD700; /* Color de las estrellas llenas */
+}
+
+#rating-value {
+  align-content: end;
+  text-align:right;
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: #333;
 }
