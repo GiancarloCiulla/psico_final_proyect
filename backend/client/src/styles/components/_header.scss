@@ -1,0 +1,16 @@
+@use '../base/variables' as vars; // Importa las variables globales con un prefijo
+@use '../base/mixins' as mixins;  // Importa los mixins con un prefijo
+
+.header {
+  background-color: 6C9A8B; // Uso de variables con prefijo
+  color:#FBF7F4;
+  padding: vars.$padding-medium;
+
+  @include mixins.respond-to(desktop) { // Uso del mixin de media queries
+    font-size: 24px;
+  }
+
+  &__button {
+    @include mixins.button(vars.$secondary-color, vars.$background-color); // Uso del mixin button con parámetros personalizados
+  }
+}

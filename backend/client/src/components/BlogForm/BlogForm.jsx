@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "../../styles/pages/_admin-dashboard.scss";
 
 const BlogForm = () => {
   // Estado inicial para los datos del formulario

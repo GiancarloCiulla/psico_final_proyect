@@ -1,0 +1,79 @@
+.categorias-container {
+    width: 100%;
+    padding: 20px;
+    background-color: #f9f9f9;
+  
+    .categorias-title {
+      font-size: 2rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #A1683A;
+    }
+  
+    .categorias-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); // Distribución responsiva
+      gap: 16px; // Espacio entre tarjetas
+    }
+  
+    .categoria-card {
+      // background-color: #ffffff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+  
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+  
+      h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #333;
+      }
+    }
+  }
+  
+// @import '../base/variables'; // Importa las variables globales
+// @import '../base/mixins';    // Importa los mixins globales
+
+// .categorias {
+//   // Configuración para grid
+//   display: grid;
+//   grid-template-columns: 1fr;
+//   gap: $padding-medium;
+
+//   // Estilos responsivos
+//   @include respond-to(tablet) {
+//     grid-template-columns: repeat(2, 1fr);
+//   }
+
+//   @include respond-to(desktop) {
+//     grid-template-columns: repeat(4, 1fr);
+//   }
+
+//   &__list {
+//     list-style: none;
+//     padding: 0;
+//     margin: 0;
+//   }
+
+//   &__item {
+//     background-color: $accent-color;
+//     color: $background-color;
+//     padding: $padding-small;
+//     border-radius: 4px;
+//     text-align: center;
+
+//     &:hover {
+//       background-color: darken($accent-color, 10%);
+//     }
+//   }
+// }
+
+  

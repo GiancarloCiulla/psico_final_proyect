@@ -1,0 +1,22 @@
+// Importar base
+@import './base/reset';
+@import './base/variables';
+@import './base/mixins';
+@import './base/globals';
+
+// Importar componentes
+@import './components/header';
+@import './components/footer';
+@import './components/categorias';
+@import './components/blogform';
+
+// Importar páginas
+@import './pages/home';
+@import './pages/admin-dashboard';
+
+// Estilos globales
+body {
+    font-family: $font-family-primary;
+    background-color: $background-color;
+    color: $text-color;
+  }

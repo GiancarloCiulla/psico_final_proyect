@@ -6,6 +6,7 @@ import Header from "../Header/Header";
 import Home from "../Main/Home/Home"
 import Categorias from "./Categories/Categorias";
 import AdminDashboard from "./AdminDashboard/AdminDashboard";
+import Buscador from "../Main/Buscador/Buscador";
 //import "./App.css";
 
 const App = () => {
@@ -18,8 +19,9 @@ const App = () => {
           path="/"
           element={
             <>
-              <Home />
+              
               <Categorias />
+              <Buscador />
             </>
           }
         />
