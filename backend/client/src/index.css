@@ -21,6 +21,9 @@ h2.card__title{
 div.categoria-card{
   background-color: #E8998D;
 }
+div.admin-dashboard{
+  background-color: #EED2CC;
+}
 div.card{
   border-radius: 5px;
   background-color: #EED2CC ;

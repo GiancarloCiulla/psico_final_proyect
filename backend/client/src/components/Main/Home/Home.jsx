@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../../../styles/pages/_home.scss";
 import Card from "./Card/Card"; 
-
+import Buscador from "../../Main/Buscador/Buscador";
 
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
@@ -22,8 +22,7 @@ const Blog = () => {
         setLoading(false);
       }
     };
-  
-  
+
     fetchBlogs();
   }, []);
 
@@ -33,6 +32,11 @@ const Blog = () => {
   return (
     <div className="blog-container">
       <h1 className="blog-title">Blog</h1>
+
+      {/* Pasamos los blogs como props al componente Buscador */}
+      <Buscador blogs={blogs} />
+
+      {/* Renderizamos los blogs directamente si es necesario */}
       <div className="blog-grid">
         {blogs.map((blog) => (
           <Card key={blog.id} blog={blog} />
@@ -41,6 +45,45 @@ const Blog = () => {
     </div>
   );
 };
+
+
+// const Blog = () => {
+//   const [blogs, setBlogs] = useState([]);
+//   const [loading, setLoading] = useState(true);
+//   const [error, setError] = useState(null);
+
+//   useEffect(() => {
+//     const fetchBlogs = async () => {
+//       try {
+//         const response = await axios.get("http://localhost:3000/blog"); // Asegúrate de que la URL sea correcta
+//         console.log("Datos obtenidos desde la API:", response.data); // Verifica la estructura de la respuesta
+//         setBlogs(response.data.blogs); // Ajusta para usar el array dentro de `blogs`
+//       } catch (err) {
+//         console.error("Error al cargar los blogs:", err); // Muestra errores en consola
+//         setError("Error al cargar los blogs");
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
+  
+  
+//     fetchBlogs();
+//   }, []);
+
+//   if (loading) return <p>Cargando blogs...</p>;
+//   if (error) return <p>{error}</p>;
+
+//   return (
+//     <div className="blog-container">
+//       <h1 className="blog-title">Blog</h1>
+//       <div className="blog-grid">
+//         {blogs.map((blog) => (
+//           <Card key={blog.id} blog={blog} />
+//         ))}
+//       </div>
+//     </div>
+//   );
+// };
 
 export default Blog;
 

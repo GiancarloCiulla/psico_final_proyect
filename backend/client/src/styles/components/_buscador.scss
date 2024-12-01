@@ -1,0 +1,28 @@
+.buscador-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  
+    .buscador-title {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #333;
+    }
+  
+    .buscador-input {
+      width: 100%;
+      max-width: 500px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      font-size: 1rem;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  
+    .buscador-input:focus {
+      outline: none;
+      border-color: #ff6f61;
+      box-shadow: 0px 0px 10px rgba(255, 111
+      )}}

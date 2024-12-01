@@ -1,34 +1,42 @@
 import React, { useState } from "react";
-import LoginForm from "../../../src/components/Header/Login/LoginForm"; 
- import "../../styles/components/_header.scss";
+import { useNavigate } from "react-router-dom"; // Importamos useNavigate
+import LoginForm from "../../../src/components/Header/Login/LoginForm";
+import "../../styles/components/_header.scss";
 
 const Header = () => {
   const [showLoginModal, setShowLoginModal] = useState(false);
+  const navigate = useNavigate(); // Hook para redireccionar
 
   const handleOpenModal = () => {
-    setShowLoginModal(true); 
+    setShowLoginModal(true);
   };
 
   const handleCloseModal = () => {
     setShowLoginModal(false);
   };
 
+  const handleNavigateToHome = () => {
+    navigate("/"); // Redirige a la ruta "/home"
+  };
+
   return (
     <header className="header">
       <h1>Espacio para el Alma</h1>
-      <h3>By:Anabel Soliveri</h3>
-      <button className="login-button" onClick={handleOpenModal}>
-        {/* Acceso Admin */}
-      </button>
+      <h3>By: Anabel Soliveri</h3>
+      <div className="header-buttons">
+        <button className="home-button" onClick={handleNavigateToHome}>
+          🏠
+        </button>
+        <button className="login-button" onClick={handleOpenModal}>
+          Admin 💻
+        </button>
+      </div>
       {showLoginModal && (
         <div className="modal">
-          <div className="modal-content">
-            <button className="close-button" onClick={handleCloseModal}>
-              ✖
-            </button>
-            <LoginForm onClose={handleCloseModal} /> 
+            
+            <LoginForm onClose={handleCloseModal} />
           </div>
-        </div>
+  
       )}
     </header>
   );
