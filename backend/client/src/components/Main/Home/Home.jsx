@@ -13,7 +13,6 @@ const Blog = () => {
     const fetchBlogs = async () => {
       try {
         const response = await axios.get("http://localhost:3000/blog"); // Asegúrate de que la URL sea correcta
-        console.log("Datos obtenidos desde la API:", response.data); // Verifica la estructura de la respuesta
         setBlogs(response.data.blogs); // Ajusta para usar el array dentro de `blogs`
       } catch (err) {
         console.error("Error al cargar los blogs:", err); // Muestra errores en consola

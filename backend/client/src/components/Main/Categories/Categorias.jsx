@@ -11,7 +11,7 @@ const Categorias = () => {
     const fetchCategorias = async () => {
       try {
         const response = await axios.get("http://localhost:3000/api/categoria");
-        console.log("Datos obtenidos:", response.data);
+        
         setCategorias(response.data);
       } catch (err) {
         console.error("Error al obtener los datos:", err);
