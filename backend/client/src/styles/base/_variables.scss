@@ -1,7 +1,12 @@
 // Breakpoints
-$breakpoint-mobile: 576px;
-$breakpoint-tablet: 768px;
-$breakpoint-desktop: 1024px;
+// $breakpoint-mobile: 576px;
+// $breakpoint-tablet: 768px;
+// $breakpoint-desktop: 1024px;
+$breakpoint-mobile: 600px;
+$breakpoint-tablet: 1024px;
+$breakpoint-desktop: 1280px; // Desktop estándar
+$breakpoint-large-desktop: 1920px; // Pantallas muy grandes
+
 // Espaciados
 $padding-small: 8px;
 $padding-medium: 16px;
