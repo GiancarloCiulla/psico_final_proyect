@@ -34,7 +34,7 @@
   color: #333;
 }
 .admin-login-form{
-  background-color: #E8998D;
+  background-color: #78CDD7;
 }
 /* Grupo de campos (etiquetas y entradas) */
 .form-group {
@@ -63,7 +63,7 @@
 }
 
 .form-group input:focus {
-  border-color: #007bff;
+  border-color: #0D5C63;
   outline: none;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
@@ -74,7 +74,7 @@
   padding: 10px 20px;
   font-size: 16px;
   color: #fff;
-  background-color: #007bff;
+  background-color: #0D5C63;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -113,7 +113,7 @@ div.categoria-card{
 
 }
 div.admin-dashboard{
-  background-color: #EED2CC;
+  background-color: #78CDD7;
 }
 div.card{
   border-radius: 5px;
@@ -172,9 +172,15 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #A1683A;
+  background-color: red;
   cursor: pointer;
   transition: border-color 0.25s;
+}
+button.home-button{
+  background-color: #78CDD7;
+}
+button.login-button{
+  background-color: #78CDD7;
 }
 button:hover {
   border-color: #646cff;
