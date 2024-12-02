@@ -19,18 +19,30 @@ const Login = () => {
       {!showForm ? (
         <button onClick={handleShowForm}>Introduce tus credenciales🪪</button>
       ) : (
-        <form onSubmit={handleLogin}>
-          <h2>Acceso Admin</h2>
-          <div>
-            <label>Usuario:</label>
-            <input type="email" placeholder="Email" required />
-          </div>
-          <div>
-            <label>Contraseña:</label>
-            <input type="password" placeholder="Contraseña" required />
-          </div>
-          <button type="submit">Ingresar</button>
-        </form>
+        <form onSubmit={handleLogin} className="admin-login-form">
+  <h2>Acceso Admin</h2>
+  <div className="form-group">
+    <label>Usuario:</label>
+    <input type="email" placeholder="Email" required />
+  </div>
+  <div className="form-group">
+    <label>Contraseña:</label>
+    <input type="password" placeholder="Contraseña" required />
+  </div>
+  <button type="submit" className="form-submit-btn">Ingresar</button>
+</form>
+        // <form onSubmit={handleLogin}>
+        //   <h2>Acceso Admin</h2>
+        //   <div>
+        //     <label>Usuario:</label>
+        //     <input type="email" placeholder="Email" required />
+        //   </div>
+        //   <div>
+        //     <label>Contraseña:</label>
+        //     <input type="password" placeholder="Contraseña" required />
+        //   </div>
+        //   <button type="submit">Ingresar</button>
+        // </form>
       )}
     </div>
   );

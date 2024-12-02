@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgb(63, 63, 63);
-  background-color: #6C9A8B;
+  background-color: #0D5C63;
   border-radius: 8px;
 
   font-synthesis: none;
@@ -13,6 +13,88 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+/* Estilo general del contenedor */
+/* Contenedor general del formulario */
+.admin-login-form {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+/* Título del formulario */
+.admin-login-form h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+.admin-login-form{
+  background-color: #E8998D;
+}
+/* Grupo de campos (etiquetas y entradas) */
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+
+}
+
+/* Etiquetas */
+.form-group label {
+  display: block;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+/* Campos de entrada */
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Botón de envío */
+.form-submit-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-submit-btn:hover {
+  background-color: #0056b3;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsivo: centrado en pantallas pequeñas */
+@media (max-width: 768px) {
+  .admin-login-form {
+    width: 90%;
+    padding: 15px;
+  }
+}
+
+
 p {
   font-family: 'Roboto', sans-serif; /* Cambia a otra fuente si prefieres */
   font-size: 1rem; /* Ajusta según tus necesidades */
@@ -20,22 +102,25 @@ p {
   color: #836c6c; /* Asegura contraste legible */
   margin: 16px 0; /* Espaciado arriba y abajo */
 }
-
+.categorias-container {
+  padding: 20px 0px;
+}
 h2.card__title{
-  color: #A1683A
+  color: #44a1a0
 }
 div.categoria-card{
-  background-color: #E8998D;
+  background-color: #78cdd7;
+
 }
 div.admin-dashboard{
   background-color: #EED2CC;
 }
 div.card{
   border-radius: 5px;
-  background-color: #EED2CC ;
+  background-color: #FFFFFA ;
 }
 div.categorias-container{
-  background-color: #EED2CC;
+  background-color: #FFFFFA;
 }
 div.card__content {
 margin-left: 15px;
@@ -53,7 +138,7 @@ margin-left: 15px;
 }
 h3{
   text-align:center ;
-  color:#E8998D
+  color:#FFFFFA
 }
 a {
   font-weight: 500;
@@ -76,7 +161,8 @@ h1 {
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 3em;
   line-height: 1.1;
-  color:#A1683A
+  color:#FFFFFA;
+  text-align:center
 }
 
 button {
@@ -115,7 +201,7 @@ button:focus-visible {
   gap: 5px;
   justify-content:flex-end;
   align-items: center;
-  font-size: 1rem;
+  font-size: rem;
   color: #ccc; /* Color de las estrellas vacías */
   cursor: pointer;
   
