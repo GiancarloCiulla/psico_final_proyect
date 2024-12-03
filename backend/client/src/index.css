@@ -205,11 +205,11 @@
 
 
 p {
-  font-family: 'Roboto', sans-serif; /* Cambia a otra fuente si prefieres */
-  font-size: 1rem; /* Ajusta según tus necesidades */
-  line-height: 1.5; /* Espaciado entre líneas */
-  color: #836c6c; /* Asegura contraste legible */
-  margin: 16px 0; /* Espaciado arriba y abajo */
+  font-family: 'Roboto', sans-serif; 
+  font-size: 1rem; 
+  line-height: 1.5; 
+  color: #836c6c; 
+  margin: 16px 0; 
 }
 .categorias-container {
   padding: 20px 0px;
@@ -319,13 +319,13 @@ button:focus-visible {
   justify-content:flex-end;
   align-items: center;
   font-size: rem;
-  color: #ccc; /* Color de las estrellas vacías */
+  color: #ccc; 
   cursor: pointer;
   
 }
 
 .star-rating .star.filled {
-  color: #FFD700; /* Color de las estrellas llenas */
+  color: #FFD700; 
 }
 
 #rating-value {
@@ -344,40 +344,40 @@ button:focus-visible {
   justify-content: center;
   margin: 20px 0;
   padding: 20px;
-  background-color: #eaf6f6; /* Color de fondo suave */
-  border-radius: 8px; /* Bordes redondeados */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+  background-color: #eaf6f6; 
+  border-radius: 8px; 
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
 /* Estilo para el título del buscador */
 .blog-title {
   font-size: 24px;
   font-weight: bold;
-  color: #026773; /* Color principal */
+  color: #026773; 
   margin-bottom: 15px;
   text-align: center;
 }
 
 /* Estilo para el selector */
 .buscador-select {
-  width: 250px; /* Ajustar tamaño */
+  width: 250px; 
   padding: 10px;
   font-size: 16px;
-  color: #026773; /* Color del texto */
-  background-color: #ffffff; /* Fondo blanco */
-  border: 1px solid #026773; /* Borde con color principal */
-  border-radius: 6px; /* Bordes redondeados */
+  color: #026773; 
+  background-color: #ffffff; 
+  border: 1px solid #026773; 
+  border-radius: 6px; 
   outline: none;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Sombra */
-  transition: all 0.3s ease; /* Transición para hover */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
+  transition: all 0.3s ease; 
 }
 
 /* Hover y focus en el selector */
 .buscador-select:hover,
 .buscador-select:focus {
-  background-color: #d9f1f2; /* Fondo más claro */
-  border-color: #023e4a; /* Cambiar el color del borde */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15); /* Sombra más destacada */
+  background-color: #d9f1f2; 
+  border-color: #023e4a; 
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15); 
   cursor: pointer;
 }
 
@@ -394,9 +394,9 @@ button:focus-visible {
     padding: 15px;
   }
   .buscador-select {
-    width: 90%; /* Se ajusta al ancho del contenedor */
+    width: 90%; 
   }
   .blog-title {
-    font-size: 20px; /* Reducir tamaño de fuente */
+    font-size: 20px; 
   }
 }

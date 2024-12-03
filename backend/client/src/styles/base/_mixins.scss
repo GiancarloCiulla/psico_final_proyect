@@ -1,5 +1,4 @@
-// Importar variables (asegúrate de que el archivo variables.scss contiene los breakpoints necesarios)
-@use './variables' as vars; // Usa un prefijo para evitar conflictos
+@use './variables' as vars; 
 
 @mixin respond-to($breakpoint) {
   @if $breakpoint == mobile {
