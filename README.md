@@ -1,4 +1,5 @@
 🧠 Aplicación de Blog de Psicología
+
 📋 Descripción del Proyecto
 Este proyecto consiste en una web profesional para una psicóloga, donde se muestran servicios ofrecidos, recursos descargables y un blog de artículos de psicología. La plataforma también incluye una gestión de citas con un panel administrativo.
 
