@@ -46,5 +46,7 @@ Este proyecto está bajo la licencia MIT.
 
 📧 Contacto
 Desarrollador: Giancarlo Ciulla 
+
 LinkedIn: https://www.linkedin.com/in/giancarlo-ciulla/
+
 Email: giancarlociulla.alfano@gmail.com
