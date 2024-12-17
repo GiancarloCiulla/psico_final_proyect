@@ -17,23 +17,30 @@ Panel Administrativo (Psicóloga):
 
 Gestión de citas (CRUD).
 Administración del blog (crear, editar y eliminar artículos).
+
 Extras Implementados
 Diseño Adaptable: Mobile-first, optimizado para escritorio y dispositivos móviles.
+
 Colores y estilo: Suaves y acogedores, acordes al ámbito profesional de la psicología.
+
 🛠️ Tecnologías Utilizadas
+
 Backend
 Node.js y Express.js: Creación de la API REST.
 Base de datos: MongoDB (NoSQL) con Mongoose.
 Autenticación: JWT para proteger rutas privadas.
 Servidor: Despliegue en Render o Vercel.
+
 Frontend
 React: Librería para construir la interfaz de usuario.
 Sass/Tailwind CSS: Estilos modernos y personalizados.
 React Router: Manejo de rutas para navegación.
+
 🧩 Próximas Mejoras
 Chat en tiempo real para consultas rápidas.
 Tests psicológicos interactivos.
 Funcionalidad multilenguaje para mayor alcance.
+
 📄 Licencia
 Este proyecto está bajo la licencia MIT.
 
